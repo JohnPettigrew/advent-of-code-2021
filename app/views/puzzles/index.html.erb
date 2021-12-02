@@ -1,4 +1,6 @@
-<h3>Puzzle 1 solution:</h3>
-<p>Items: <%= @puzzle_1.count %></p>
-<p>Increases: <%= @puzzle_1.increases %></p>
-<p>Window increases: <%= @puzzle_1.three_item_window_increases %></p>
+<h3>Puzzle 2 solution:</h3>
+<% _puzzle = @puzzle.navigate%>
+<p>Aim: <%= _puzzle.aim %></p>
+<p>Position: <%= _puzzle.position %></p>
+<p>Depth: <%= _puzzle.depth %></p>
+<p>Final product: <%= _puzzle.final_product %></p>
