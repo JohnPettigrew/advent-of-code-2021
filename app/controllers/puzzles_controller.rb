@@ -1,5 +1,5 @@
 class PuzzlesController < ApplicationController
   def index
-    @puzzle = Puzzle2.new
+    @puzzle = Puzzle3.new
   end
 end

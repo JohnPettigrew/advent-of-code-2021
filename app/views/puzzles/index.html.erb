@@ -1,6 +1,9 @@
-<h3>Puzzle 2 solution:</h3>
-<% _puzzle = @puzzle.navigate%>
-<p>Aim: <%= _puzzle.aim %></p>
-<p>Position: <%= _puzzle.position %></p>
-<p>Depth: <%= _puzzle.depth %></p>
-<p>Final product: <%= _puzzle.final_product %></p>
+<h3>Puzzle 3 solution:</h3>
+<% _puzzle = @puzzle.calculate%>
+<p>Gamma rate: <%= @puzzle.gamma_rate %></p>
+<p>Epsilon rate: <%= @puzzle.epsilon_rate %></p>
+<p>Power consumption: <%= @puzzle.power_consumption %></p>
+<p>&nbsp;</p>
+<p>Oxygen generator rating: <%= @puzzle.oxygen_generator_rating %></p>
+<p>CO<sub>2</sub> scrubber rating: <%= @puzzle.co2_scrubber_rating %></p>
+<p>Life-support rating: <%= @puzzle.life_support_rating %></p>
