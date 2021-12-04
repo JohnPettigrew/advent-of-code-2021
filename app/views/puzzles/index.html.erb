@@ -1,4 +1,7 @@
 <h3>Puzzle 3 solution:</h3>
 
-<p>Winning board: <%= @puzzle.play_and_get_winning_board %></p>
-<p>Score: <%= @puzzle.score %></p>
+<% @puzzle.play %>
+<p>Winning board: <%= @puzzle.winning_board %></p>
+<p>Score: <%= @puzzle.score(@puzzle.winning_board, @puzzle.winning_number) %></p>
+<p>Losing board: <%= @puzzle.losing_board %></p>
+<p>Score: <%= @puzzle.score(@puzzle.losing_board, @puzzle.losing_number) %></p>

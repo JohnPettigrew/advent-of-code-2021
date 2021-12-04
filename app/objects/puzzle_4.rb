@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Puzzle4
-  attr_reader :match_boards, :winning_board
+  attr_reader :match_boards
 
   def initialize
-    @winning_board = false
-    @winning_number = 0
+    @list_of_winning_boards = []
+    @list_of_winning_numbers = []
     @numbers = [49, 48, 98, 84, 71, 59, 37, 36, 6, 21, 46, 30, 5, 33, 3, 62, 63, 45, 43, 35, 65, 77, 57, 75, 19, 44, 4, 76, 88, 92, 12, 27, 7, 51, 14, 72, 96, 9, 0, 17, 83, 64, 38, 95, 54, 20, 1, 74, 69, 80, 81, 56, 10, 68, 42, 15, 99, 53, 93, 94, 47, 13, 29, 34, 60, 41, 82, 90, 25, 85, 78, 91, 32, 70, 58, 28, 61, 24, 55, 87, 39, 11, 79, 50, 22, 8, 89, 26, 16, 2, 73, 23, 18, 66, 52, 31, 86, 97, 67, 40]
     @boards = [[86, 46, 47, 61, 57, 44, 74, 17, 5, 87, 78, 8, 54, 55, 97, 11, 90, 7, 75, 70, 81, 50, 84, 10, 60],
       [47, 28, 64, 52, 44, 73, 48, 30, 15, 53, 57, 21, 78, 75, 26, 51, 39, 72, 18, 25, 29, 76, 83, 54, 82],
@@ -111,27 +111,42 @@ class Puzzle4
     @winning_boards = []
   end
 
-  def play_and_get_winning_board
+  def play
     @numbers.each do |_number|
       @boards.each_with_index do |_board, _i|
-        check_off_matches_on_board(_board, _number, _i)
-        if winning_board?(_i)
-          @winning_board = _i
-          @winning_number = _number
-          return _i
+        unless @list_of_winning_boards.include?(_i)
+          check_off_matches_on_board(_board, _number, _i)
+          if winning_board?(_i)
+            @list_of_winning_boards.push(_i)
+            @list_of_winning_numbers.push(_number)
+          end
         end
       end
     end
-    false
   end
 
-  def score
-    _winning_match_board = @match_boards[@winning_board]
+  def winning_board
+    @list_of_winning_boards[0]
+  end
+
+  def winning_number
+    @list_of_winning_numbers[0]
+  end
+
+  def losing_board
+    @list_of_winning_boards[-1]
+  end
+
+  def losing_number
+    @list_of_winning_numbers[-1]
+  end
+
+  def score(_board, _number)
     _score_part = 0
-    _winning_match_board.each_with_index do |_matched_number, _i|
-      _score_part += @boards[@winning_board][_i] unless _matched_number
+    @match_boards[_board].each_with_index do |_matched_number, _i|
+      _score_part += @boards[_board][_i] unless _matched_number
     end
-    _score_part * @winning_number
+    _score_part * _number
   end
 
   private
