@@ -1,9 +1,4 @@
 <h3>Puzzle 3 solution:</h3>
-<% _puzzle = @puzzle.calculate%>
-<p>Gamma rate: <%= @puzzle.gamma_rate %></p>
-<p>Epsilon rate: <%= @puzzle.epsilon_rate %></p>
-<p>Power consumption: <%= @puzzle.power_consumption %></p>
-<p>&nbsp;</p>
-<p>Oxygen generator rating: <%= @puzzle.oxygen_generator_rating %></p>
-<p>CO<sub>2</sub> scrubber rating: <%= @puzzle.co2_scrubber_rating %></p>
-<p>Life-support rating: <%= @puzzle.life_support_rating %></p>
+
+<p>Winning board: <%= @puzzle.play_and_get_winning_board %></p>
+<p>Score: <%= @puzzle.score %></p>
