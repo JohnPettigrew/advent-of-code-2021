@@ -1,6 +1,6 @@
-<h3>Puzzle 5 solution:</h3>
+<h3>Puzzle 6 solution:</h3>
 
-<p>X: <%= @puzzle.x_width %></p>
-<p>Y: <%= @puzzle.y_height %></p>
-<% @puzzle.draw_full_map %>
-<p>High-point count: <%= @puzzle.high_point_count %></p>
+<% @puzzle.breed %>
+<p>Breed: <%= @puzzle.number_of_fish %></p>
+<% @puzzle = Puzzle6.new %>
+<p>Simulate breeding: <%= @puzzle.calculated_breeding(256) %></p>
