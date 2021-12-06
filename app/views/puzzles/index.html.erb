@@ -1,7 +1,6 @@
-<h3>Puzzle 3 solution:</h3>
+<h3>Puzzle 5 solution:</h3>
 
-<% @puzzle.play %>
-<p>Winning board: <%= @puzzle.winning_board %></p>
-<p>Score: <%= @puzzle.score(@puzzle.winning_board, @puzzle.winning_number) %></p>
-<p>Losing board: <%= @puzzle.losing_board %></p>
-<p>Score: <%= @puzzle.score(@puzzle.losing_board, @puzzle.losing_number) %></p>
+<p>X: <%= @puzzle.x_width %></p>
+<p>Y: <%= @puzzle.y_height %></p>
+<% @puzzle.draw_full_map %>
+<p>High-point count: <%= @puzzle.high_point_count %></p>
